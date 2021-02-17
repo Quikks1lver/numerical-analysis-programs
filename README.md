@@ -1,4 +1,4 @@
-# About
+### About
 
 Here are a bunch of numerical analysis/calculus programs I wrote to test and solve problems during my
 numerical analysis course at UCF.
