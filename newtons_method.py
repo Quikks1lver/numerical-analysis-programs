@@ -28,7 +28,7 @@ def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: b
       prev = px
       
       try:
-         # change this! px = ...
+         # change this! f_prime and f = . . .
          deriv = f_prime(prev)
          if deriv == 0:
             print(f"\n\tDerivative = 0 at {numIterations}. Abort.\n")
