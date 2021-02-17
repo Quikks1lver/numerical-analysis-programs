@@ -14,6 +14,8 @@ def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOut
    """
    Conducts a fixed point iteration technique, you need to do the function operations though
    """
+   print(f"\t--- Fixed Point Iteration ---\n")
+
    numIterations: int = 1
    prev, px, diff = p0, p0, p0
 
