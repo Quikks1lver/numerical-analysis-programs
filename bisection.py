@@ -2,6 +2,7 @@
 # February 2021
 # Computes number of iterations and answer to a root bisection problem
 
+from math import cos, sin, tan, pi
 import sys
 
 def f(x: float) -> float:

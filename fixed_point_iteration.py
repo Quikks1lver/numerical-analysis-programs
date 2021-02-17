@@ -2,11 +2,13 @@
 # February 2021
 # Computes number of iterations and answer to a fixed point problem
 
+from math import cos, sin, tan, pi
+
 def f(x: float) -> float:
    """
    DEFINE THIS YOURSELF!
    """
-   return (.5 * x) + (1.5 * (1/x))
+   return cos(x)
 
 def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
    """
@@ -42,9 +44,9 @@ def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOut
 def main():
    print("\n\tRemember to change function!\n")
 
-   p0: float = 1.0
-   tolerance: float = .001
-   maxIterations: int = 10
+   p0: float = (pi / 4)
+   tolerance: float = 1e-10
+   maxIterations: int = 20
    moreOutput: bool = True
 
    fixedPointIteration(p0, tolerance, maxIterations, moreOutput) # CHANGE THE FUNCTION F FROM ABOVE TO TEST!!
