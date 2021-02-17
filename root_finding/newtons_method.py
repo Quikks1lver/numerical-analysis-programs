@@ -78,6 +78,7 @@ def secantMethod(p0: float, p1: float, tolerance: float, maxIterations: int, mor
    Haven't implemented false position (yet)
    """
    print(f"\t--- Secant Method ---\n")
+   print(f"\tp_0 -- {p0}\n\tp_1 -- {p1}")
 
    numIterations: int = 1
    pastVals: List[Val] = []
@@ -98,13 +99,13 @@ def secantMethod(p0: float, p1: float, tolerance: float, maxIterations: int, mor
          px = prev1.val - ((f(prev1.val) * (prev1.val - prev2.val)) / (f(prev1.val) - f(prev2.val)))
          px_val = Val(px)
          pastVals.append(px_val)
-         
+
       except:
          print(f"\n\tSomething wack happened at iteration {numIterations}. Caught error.\n")
          return
 
       if moreOutput:
-         print(f"\tIteration #{numIterations} -- {round(px, 5)} <- f({round(prev, 3)})")
+         print(f"\tp_{numIterations} -- {round(px, 5)} <- p_n-1 __{round(prev1.val, 3)}__ & p_n-2 __{round(prev2.val, 3)}__")
 
       diff = abs(px - prev)
       numIterations += 1
