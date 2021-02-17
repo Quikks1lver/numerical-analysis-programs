@@ -1,18 +1,25 @@
 # Adam Fernandes
 # February 2021
-# Computes number of iterations and answer to a fixed point problem
+# Uses Newton's Method to find roots for functions
 
 from math import cos, sin, tan, pi
+from Helpers import convertDegreeToRadian
 
 def f(x: float) -> float:
    """
    DEFINE THIS YOURSELF!
    """
-   return cos(x)
+   return cos(x) - x
 
-def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
+def f_prime(x: float) -> float:
    """
-   Conducts a fixed point iteration technique, you need to do the function operations though
+   Derivative of f(x). DEFINE THIS YOURSELF!
+   """
+   return (-1 * sin(x)) - 1
+
+def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
+   """
+   Undergoes Newton's method, you need to do the function operations though
    """
    numIterations: int = 1
    prev, px, diff = p0, p0, p0
@@ -22,7 +29,12 @@ def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOut
       
       try:
          # change this! px = ...
-         px = f(prev)
+         deriv = f_prime(prev)
+         if deriv == 0:
+            print(f"\n\tDerivative = 0 at {numIterations}. Abort.\n")
+            return
+
+         px = prev - (f(prev) / deriv)
       except:
          print(f"\n\tSomething wack happened at iteration {numIterations}. Caught error.\n")
          return
@@ -46,10 +58,10 @@ def main():
 
    p0: float = (pi / 4)
    tolerance: float = 1e-10
-   maxIterations: int = 20
+   maxIterations: int = 10
    moreOutput: bool = True
 
-   fixedPointIteration(p0, tolerance, maxIterations, moreOutput) # CHANGE THE FUNCTION F FROM ABOVE TO TEST!!
+   newtonsMethod(p0, tolerance, maxIterations, moreOutput) # CHANGE THE FUNCTION F FROM ABOVE TO TEST!!
 
 if __name__ == "__main__":
    main()
