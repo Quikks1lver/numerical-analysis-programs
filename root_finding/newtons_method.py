@@ -1,21 +1,21 @@
 # Adam Fernandes
 # February 2021
-# Uses Newton's Method to find roots for functions
+# Newton's Method, Secant Method, and False Position Method for finding roots
 
 from math import cos, sin, tan, pi
-from Helpers import convertDegreeToRadian
+from helpers import convertDegreeToRadian
 
 def f(x: float) -> float:
    """
    DEFINE THIS YOURSELF!
    """
-   return cos(x) - x
+   return x ** 2 - 6
 
 def f_prime(x: float) -> float:
    """
    Derivative of f(x). DEFINE THIS YOURSELF!
    """
-   return (-1 * sin(x)) - 1
+   return 2 * x
 
 def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
    """
@@ -56,7 +56,7 @@ def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: b
 def main():
    print("\n\tRemember to change function!\n")
 
-   p0: float = (pi / 4)
+   p0: float = 1
    tolerance: float = 1e-10
    maxIterations: int = 10
    moreOutput: bool = True
