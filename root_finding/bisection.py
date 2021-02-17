@@ -31,6 +31,8 @@ def bisectionMethod(left: float, right: float, tolerance: float, maxIterations: 
    """
    Conducts a bisection method root finding, you need to do the function operations though
    """
+   print(f"\t--- Bisection Method ---\n")
+
    numIterations: int = 1
    mid, prev, diff = sys.maxsize, sys.maxsize, sys.maxsize
    midVal: float = 0.0

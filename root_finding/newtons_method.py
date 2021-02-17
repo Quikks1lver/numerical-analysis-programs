@@ -1,6 +1,6 @@
 # Adam Fernandes
 # February 2021
-# Newton's Method, Secant Method for finding roots
+# Newton's Method, Secant Method, False Position for finding roots
 
 from math import cos, sin, tan, pi
 from helpers import convertDegreeToRadian
@@ -15,9 +15,10 @@ class Val:
 
    def isPositive(self) -> bool:
       """
-      Returns True if positive, False otherwise
+      Returns True if f(val) is positive, False otherwise
+      Used for false position
       """
-      return True if self.val > 0 else False
+      return True if f(self.val) > 0 else False
    
    def __repr__(self):
       return f"{self.val}"
@@ -72,12 +73,13 @@ def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: b
    
    return
 
-def secantMethod(p0: float, p1: float, tolerance: float, maxIterations: int, moreOutput: bool, falsePosition: bool) -> None:
+def secantMethodAndFalsePosition(p0: float, p1: float, tolerance: float, maxIterations: int, moreOutput: bool, falsePosition: bool) -> None:
    """
-   Undergoes secant method, you need to do the function operations though
-   Haven't implemented false position (yet)
+   Undergoes secant method or false position, you need to do the function operations though
    """
-   print(f"\t--- Secant Method ---\n")
+   title = "False Position" if falsePosition else "Secant Method"
+   print(f"\t--- {title} ---\n")
+   print(f"\tp_0 -- {p0}\n\tp_1 -- {p1}")
 
    numIterations: int = 1
    pastVals: List[Val] = []
@@ -95,16 +97,24 @@ def secantMethod(p0: float, p1: float, tolerance: float, maxIterations: int, mor
          prev1 = pastVals[-1]
          prev2 = pastVals[-2]
 
+         if falsePosition:
+            if not (prev1.isPositive() ^ prev2.isPositive()):
+               for i in range(len(pastVals) - 2, -1, -1):
+                  temp = pastVals[i]
+                  if temp.isPositive() ^ prev1.isPositive():
+                     prev2 = temp
+                     break
+
          px = prev1.val - ((f(prev1.val) * (prev1.val - prev2.val)) / (f(prev1.val) - f(prev2.val)))
          px_val = Val(px)
          pastVals.append(px_val)
-         
+
       except:
          print(f"\n\tSomething wack happened at iteration {numIterations}. Caught error.\n")
          return
 
       if moreOutput:
-         print(f"\tIteration #{numIterations} -- {round(px, 5)} <- f({round(prev, 3)})")
+         print(f"\tp_{numIterations} -- {round(px, 5)} <- p_n-1 __{round(prev1.val, 3)}__ & p_n-2 __{round(prev2.val, 3)}__")
 
       diff = abs(px - prev)
       numIterations += 1
@@ -129,7 +139,7 @@ def main():
    
    p0 = 3
    p1 = 2
-   secantMethod(p0, p1, tolerance, 10, True, False)
+   secantMethodAndFalsePosition(p0, p1, tolerance, 10, True, True)
 
 if __name__ == "__main__":
    main()
