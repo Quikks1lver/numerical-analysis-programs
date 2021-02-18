@@ -4,6 +4,7 @@
 
 from math import cos, sin, tan, pi
 from helpers import convertDegreeToRadian
+import sys
 from typing import List
 
 class Val:
@@ -27,13 +28,13 @@ def f(x: float) -> float:
    """
    DEFINE THIS YOURSELF!
    """
-   return (x**3) + (3 * (x**2)) - 1
+   return x - cos(x)
 
 def f_prime(x: float) -> float:
    """
    Derivative of f(x). DEFINE THIS YOURSELF!
    """
-   return (3 * (x ** 2)) + (6 * x)
+   return 1 + sin(x)
 
 def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
    """
@@ -42,7 +43,7 @@ def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: b
    print(f"\t--- Newton's Method ---\n")
 
    numIterations: int = 1
-   prev, px, diff = p0, p0, abs(p0)
+   prev, px, diff = p0, p0, abs(sys.maxsize)
 
    while diff >= tolerance and numIterations <= maxIterations:
       prev = px
@@ -130,7 +131,7 @@ def secantMethodAndFalsePosition(p0: float, p1: float, tolerance: float, maxIter
 def main():
    print("\n\tRemember to change function!\n")
 
-   p0: float = -3
+   p0: float = 0
    tolerance: float = 1e-4
    maxIterations: int = 20
    moreOutput: bool = True
