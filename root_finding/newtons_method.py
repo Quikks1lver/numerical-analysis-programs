@@ -88,7 +88,7 @@ def secantMethodAndFalsePosition(p0: float, p1: float, tolerance: float, maxIter
    pastVals.append(Val(p0))
    pastVals.append(Val(p1))
 
-   diff = p1
+   diff = abs(sys.maxsize)
    px = 0
 
    while diff >= tolerance and numIterations <= maxIterations:
