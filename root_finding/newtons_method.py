@@ -4,6 +4,7 @@
 
 from math import cos, sin, tan, pi
 from helpers import convertDegreeToRadian
+import sys
 from typing import List
 
 class Val:
@@ -27,13 +28,13 @@ def f(x: float) -> float:
    """
    DEFINE THIS YOURSELF!
    """
-   return x ** 2 - 6
+   return x - cos(x)
 
 def f_prime(x: float) -> float:
    """
    Derivative of f(x). DEFINE THIS YOURSELF!
    """
-   return 2 * x
+   return 1 + sin(x)
 
 def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
    """
@@ -42,7 +43,7 @@ def newtonsMethod(p0: float, tolerance: float, maxIterations: int, moreOutput: b
    print(f"\t--- Newton's Method ---\n")
 
    numIterations: int = 1
-   prev, px, diff = p0, p0, p0
+   prev, px, diff = p0, p0, abs(sys.maxsize)
 
    while diff >= tolerance and numIterations <= maxIterations:
       prev = px
@@ -87,7 +88,7 @@ def secantMethodAndFalsePosition(p0: float, p1: float, tolerance: float, maxIter
    pastVals.append(Val(p0))
    pastVals.append(Val(p1))
 
-   diff = p1
+   diff = abs(sys.maxsize)
    px = 0
 
    while diff >= tolerance and numIterations <= maxIterations:
@@ -130,16 +131,16 @@ def secantMethodAndFalsePosition(p0: float, p1: float, tolerance: float, maxIter
 def main():
    print("\n\tRemember to change function!\n")
 
-   p0: float = 1
-   tolerance: float = 1e-10
-   maxIterations: int = 10
+   p0: float = 0
+   tolerance: float = 1e-4
+   maxIterations: int = 20
    moreOutput: bool = True
 
-   # newtonsMethod(p0, tolerance, maxIterations, moreOutput) # CHANGE THE FUNCTION F FROM ABOVE TO TEST!!
+   newtonsMethod(p0, tolerance, maxIterations, moreOutput) # CHANGE THE FUNCTION F FROM ABOVE TO TEST!!
    
    p0 = 3
    p1 = 2
-   secantMethodAndFalsePosition(p0, p1, tolerance, 10, True, True)
+   # secantMethodAndFalsePosition(p0, p1, tolerance, 10, True, True)
 
 if __name__ == "__main__":
    main()
