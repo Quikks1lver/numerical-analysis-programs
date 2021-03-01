@@ -1,2 +1,2 @@
-- [Nevill's Method](https://www.youtube.com/watch?v=fpAlT4O4li8)
+- [Neville's Method](https://www.youtube.com/watch?v=fpAlT4O4li8)
 - [Divided Difference](https://www.youtube.com/watch?v=hcsBjizQ9X8)
