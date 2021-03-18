@@ -1,0 +1,2 @@
+- [Gaussian Quadrature](https://www.youtube.com/watch?v=sDCyxOsUlGc)
+- [Romberg Integration](https://www.youtube.com/watch?v=vzo47UoDwDA)
