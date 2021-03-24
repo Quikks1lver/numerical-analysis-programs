@@ -1,6 +1,7 @@
 # Adam Fernandes
 # March 2021
 # Utilize's Neville's method to help with interpolation
+# Coded using Dr. Glinos's code from UCF, from Dr. Jahani's num calc slides
 
 from typing import List
 
