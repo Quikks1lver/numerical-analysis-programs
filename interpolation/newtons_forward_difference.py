@@ -30,7 +30,7 @@ def main():
    # populate this with y values
    yVals: List[float] = [16.9441, 17.56492,18.50515,18.82091]
 
-   newtonsForwardDifference(xVals, yVals, z)
+   newtonsForwardDifference(xVals, yVals)
 
 if __name__ == "__main__":
    main()
