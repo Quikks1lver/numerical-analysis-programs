@@ -18,6 +18,7 @@ def newtonsForwardDifference(xVals: List[float], yVals: List[float]) -> None:
       for j in range(1, i + 1, 1):
          table[i][j] = (table[i][j-1] - table[i-1][j-1]) / (xVals[i] - xVals[i - j])
    
+   print("--- Newton's Forward Difference ---")
    for i in range(len(xVals)):
       for j in range(0, i + 1, 1):
          print(f"{table[i][j]:.7f}", end="\t")

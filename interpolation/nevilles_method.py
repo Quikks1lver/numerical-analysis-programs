@@ -21,6 +21,7 @@ def nevillesMethod(xVals: List[float], yVals: List[float], z: float) -> None:
          term2: float = (z - xVals[i]) * table[i - 1][j - 1]
          table[i][j] = (term1 - term2) / (xVals[i] - xVals[i - j])
    
+   print("--- Neville's ---")
    for i in range(len(xVals)):
       for j in range(0, i + 1, 1):
          print(f"{table[i][j]:.7f}", end="\t")
