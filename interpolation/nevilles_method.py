@@ -1,11 +1,11 @@
 # Adam Fernandes
 # March 2021
-# Utilize's Neville's method to help with interpolation
+# Utilizes Neville's method to help with interpolation
 # Coded using Dr. Glinos's code from UCF, from Dr. Jahani's num calc slides
 
 from typing import List
 
-def nevillesMethod(xVals: List[int], yVals: List[int], z: float) -> None:
+def nevillesMethod(xVals: List[float], yVals: List[float], z: float) -> None:
    """
    Conducts neville's method on the x vals, y vals, and x-val in question.
    Prints double array of values
@@ -21,6 +21,7 @@ def nevillesMethod(xVals: List[int], yVals: List[int], z: float) -> None:
          term2: float = (z - xVals[i]) * table[i - 1][j - 1]
          table[i][j] = (term1 - term2) / (xVals[i] - xVals[i - j])
    
+   print("--- Neville's ---")
    for i in range(len(xVals)):
       for j in range(0, i + 1, 1):
          print(f"{table[i][j]:.7f}", end="\t")

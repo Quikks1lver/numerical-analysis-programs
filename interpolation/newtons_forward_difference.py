@@ -1,10 +1,10 @@
 # Adam Fernandes
 # March 2021
-# Utilize's Newton's forward difference method to compute coefficients for Lagrange interpolating polynomials
+# Utilizes Newton's forward difference method to compute coefficients for Lagrange interpolating polynomials
 
 from typing import List
 
-def newtonsForwardDifference(xVals: List[int], yVals: List[int]) -> None:
+def newtonsForwardDifference(xVals: List[float], yVals: List[float]) -> None:
    """
    Conducts newton's forward difference method on the x vals and y vals
    Prints double array of values
@@ -18,6 +18,7 @@ def newtonsForwardDifference(xVals: List[int], yVals: List[int]) -> None:
       for j in range(1, i + 1, 1):
          table[i][j] = (table[i][j-1] - table[i-1][j-1]) / (xVals[i] - xVals[i - j])
    
+   print("--- Newton's Forward Difference ---")
    for i in range(len(xVals)):
       for j in range(0, i + 1, 1):
          print(f"{table[i][j]:.7f}", end="\t")
