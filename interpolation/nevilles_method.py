@@ -5,7 +5,7 @@
 
 from typing import List
 
-def nevillesMethod(xVals: List[int], yVals: List[int], z: float) -> None:
+def nevillesMethod(xVals: List[float], yVals: List[float], z: float) -> None:
    """
    Conducts neville's method on the x vals, y vals, and x-val in question.
    Prints double array of values

@@ -4,7 +4,7 @@
 
 from typing import List
 
-def newtonsForwardDifference(xVals: List[int], yVals: List[int]) -> None:
+def newtonsForwardDifference(xVals: List[float], yVals: List[float]) -> None:
    """
    Conducts newton's forward difference method on the x vals and y vals
    Prints double array of values
