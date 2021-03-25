@@ -4,9 +4,9 @@
 
 from typing import List
 
-def newtonsForwardDifference(xVals: List[int], yVals: List[int], z: float) -> None:
+def newtonsForwardDifference(xVals: List[int], yVals: List[int]) -> None:
    """
-   Conducts newton's forward difference method on the x vals, y vals, and x-val in question.
+   Conducts newton's forward difference method on the x vals and y vals
    Prints double array of values
    """
    table: List[List[float]] = [[0 for i in range(len(xVals))] for j in range(len(xVals))]
@@ -29,9 +29,6 @@ def main():
    
    # populate this with y values
    yVals: List[float] = [16.9441, 17.56492,18.50515,18.82091]
-   
-   # populate this with x-value in question
-   z: float = 1.5
 
    newtonsForwardDifference(xVals, yVals, z)
 
