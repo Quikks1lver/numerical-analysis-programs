@@ -20,7 +20,7 @@ def newtonsForwardDifference(xVals: List[int], yVals: List[int]) -> None:
    
    for i in range(len(xVals)):
       for j in range(0, i + 1, 1):
-         print(round(table[i][j], 7), end="\t")
+         print(f"{table[i][j]:.7f}", end="\t")
       print("")
 
 def main():
