@@ -1,6 +1,6 @@
 # Adam Fernandes
 # March 2021
-# Utilize's a tabular procedure to calculate coefficients for osculating Hermite polynomials
+# Utilizes a tabular procedure to calculate coefficients for osculating Hermite polynomials
 
 from typing import List
 import sys

@@ -1,6 +1,6 @@
 # Adam Fernandes
 # March 2021
-# Utilize's Newton's forward difference method to compute coefficients for Lagrange interpolating polynomials
+# Utilizes Newton's forward difference method to compute coefficients for Lagrange interpolating polynomials
 
 from typing import List
 
