@@ -7,7 +7,7 @@ from math import sin, cos, tan, pi, log, e
 
 TOLERANCE: float = 1e-7
 
-def compositeTrapezoidalApproximation(leftXVal: float, rightXVal: float, n: float) -> None:
+def compositeTrapezoidalApproximation(leftXVal: float, rightXVal: float, n: float) -> float:
    """
    Feed the left and right x endpoints, along with the n size, and calculates composite trap approx.
    """
@@ -20,9 +20,9 @@ def compositeTrapezoidalApproximation(leftXVal: float, rightXVal: float, n: floa
       approx += (2 * f(curX))
       curX += h
    
-   print(f"\n\t-- Composite Trap. Approx. --\n\t{approx * (h/2)}\n")
+   return (approx * (h/2))
 
-def compositeSimpsonsRule(leftXVal: float, rightXVal: float, n: float) -> None:
+def compositeSimpsonsRule(leftXVal: float, rightXVal: float, n: float) -> float:
    """
    Feed the left and right x endpoints, along with the n size, and calculates composite simp. approx.
    """
@@ -37,7 +37,7 @@ def compositeSimpsonsRule(leftXVal: float, rightXVal: float, n: float) -> None:
       curX += h
       count += 1
    
-   print(f"\n\t-- Composite Simp.'s Approx. --\n\t{approx * (h/3)}\n")
+   return (approx * (h/3))
 
 def f(x: float) -> float:
    """
@@ -51,8 +51,8 @@ def main():
    rightXVal: float = 2
    n: float = 8
 
-   compositeSimpsonsRule(leftXVal, rightXVal, n)
-   compositeTrapezoidalApproximation(leftXVal, rightXVal, n)
+   print(f"\n\t-- Composite Simp.'s Approx. --\n\t{compositeSimpsonsRule(leftXVal, rightXVal, n)}\n")
+   print(f"\n\t-- Composite Trap. Approx. --\n\t{compositeTrapezoidalApproximation(leftXVal, rightXVal, n)}\n")
 
 if __name__ == "__main__":
    main()
