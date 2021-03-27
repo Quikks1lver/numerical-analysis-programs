@@ -6,6 +6,7 @@
 
 - [Gaussian Quadrature](https://www.youtube.com/watch?v=sDCyxOsUlGc)
 - [Romberg Integration](https://www.youtube.com/watch?v=vzo47UoDwDA)
+- [Composite Simpson's & Trapezoidal Rules](https://www.youtube.com/watch?v=oh1NrNzvhPk)
 
 ### Interpolation
 
