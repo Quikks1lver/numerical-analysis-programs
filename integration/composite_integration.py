@@ -1,6 +1,6 @@
 # Adam Fernandes
 # March 2021
-# Feed a function and a few points, and calculates composite trapezoidal approximation
+# Feed a function and a few points, and calculates composite trapezoidal & simpson's approximations
 
 from typing import List
 from math import sin, cos, tan, pi, log, e
@@ -22,15 +22,37 @@ def compositeTrapezoidalApproximation(leftXVal: float, rightXVal: float, n: floa
    
    print(f"\n\t-- Composite Trap. Approx. --\n\t{approx * (h/2)}\n")
 
+def compositeSimpsonsRule(leftXVal: float, rightXVal: float, n: float) -> None:
+   """
+   Feed the left and right x endpoints, along with the n size, and calculates composite simp. approx.
+   """
+   h: float = abs(rightXVal - leftXVal) / n
+
+   approx: float = f(leftXVal) + f(rightXVal)
+   
+   curX: float = leftXVal + h
+   count = 1
+   while abs(curX - rightXVal) > TOLERANCE:
+      approx += ((4 if count % 2 == 1 else 2) * f(curX))
+      curX += h
+      count += 1
+   
+   print(f"\n\t-- Composite Simp.'s Approx. --\n\t{approx * (h/3)}\n")
 
 def f(x: float) -> float:
    """
-   Represents a function -- you need to change this function to use the program
+   Represents a function -- you NEED TO MODIFY this function to use the program
    """
-   return tan(x)
+   return e**(2*x) * sin(3*x)
 
 def main():
-   compositeTrapezoidalApproximation(0, (3*pi)/8, 8)
+   # populate these values
+   leftXVal: float = 0
+   rightXVal: float = 2
+   n: float = 8
+
+   compositeSimpsonsRule(leftXVal, rightXVal, n)
+   compositeTrapezoidalApproximation(leftXVal, rightXVal, n)
 
 if __name__ == "__main__":
    main()
