@@ -4,54 +4,47 @@
 
 from math import cos, sin, tan, pi
 
-def f(x: float) -> float:
+def g(x: float) -> float:
    """
    DEFINE THIS YOURSELF!
+   Denotes the function g(x) for which we are trying to find fixed point for.
+   Ex. f(x) = x^3 - x^2 + 2, and g(x) = x = (x^2 - 2) / x^2
    """
-   return cos(x)
+   return ((x**2 - 2) / x**2)
 
 def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOutput: bool) -> None:
    """
    Conducts a fixed point iteration technique, you need to do the function operations though
    """
-   print(f"\t--- Fixed Point Iteration ---\n")
+   print(f"\n\t--- Fixed Point Iteration ---\n")
 
    numIterations: int = 1
-   prev, px, diff = p0, p0, p0
+   old: float = p0
 
-   while diff >= tolerance and numIterations <= maxIterations:
-      prev = px
-      
+   while numIterations <= maxIterations:   
       try:
-         # change this! px = ...
-         px = f(prev)
+         p = g(old)
       except:
-         print(f"\n\tSomething wack happened at iteration {numIterations}. Caught error.\n")
+         print(f"Something strange happened at iteration {numIterations}. Caught error.")
+         return
+      
+      diff = abs(p - old)
+      if diff < tolerance:
+         print(f"\n\tThe value of the root is: {round(p, 4)}\n")
          return
 
-      if moreOutput:
-         print(f"\tIteration #{numIterations} -- {round(px, 5)} <- f({round(prev, 3)})")
-
-      diff = abs(px - prev)
       numIterations += 1
+      old = p
    
-   numIterations -= 1 # account for last for while loop increment
-   if numIterations >= maxIterations:
-      print(f"\n\tExceeded max iterations ({maxIterations}), yielded {px}\n")
-   else:
-      print(f"\n\tAfter {numIterations} iterations -- {px}\n")
-   
-   return
+   print(f"\n\tThe method failed after {maxIterations} iteration(s)\n")
 
 def main():
-   print("\n\tRemember to change function!\n")
-
-   p0: float = (pi / 4)
-   tolerance: float = 1e-10
+   p0: float = -150
+   tolerance: float = 1e-2
    maxIterations: int = 20
    moreOutput: bool = True
 
-   fixedPointIteration(p0, tolerance, maxIterations, moreOutput) # CHANGE THE FUNCTION F FROM ABOVE TO TEST!!
+   fixedPointIteration(p0, tolerance, maxIterations, moreOutput)
 
 if __name__ == "__main__":
    main()
