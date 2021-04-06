@@ -28,11 +28,11 @@ def fixedPointIteration(p0: float, tolerance: float, maxIterations: int, moreOut
          print(f"Something strange happened at iteration {numIterations}. Caught error.")
          return
       
-      print(f"\tIteration #{numIterations} -- {round(p, 4)}")
+      print(f"\tIteration #{numIterations} -- {p:.4f}")
 
       diff = abs(p - old)
       if diff < tolerance:
-         print(f"\n\tThe value of the root is: {round(p, 4)}\n")
+         print(f"\n\tThe value of the root is: {p:.7f}\n")
          return
 
       numIterations += 1
