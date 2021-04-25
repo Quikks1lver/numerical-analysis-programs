@@ -12,7 +12,7 @@ def main():
    print("Input t-value")
    t = float(input())
    
-   print("Input t-value")
+   print("Input y-value")
    y = float(input())
 
    print(f"\n\tEquation evaluated at t = {t}, y = {y}\t=\t{equation(t, y)}\n")
