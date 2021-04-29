@@ -44,8 +44,7 @@ def jacobiGaussSeidel(initialValues: Union[None, List[float]], numIterations: in
       # populate x_3
       matrix[i][2] = x3(x_1, x_2)
 
-      print(f"Iteration #{i}")
-      print(matrix)
+      print(f"\n\tIteration #{i}, using Gauss-Seidel? ({useGaussSeidel})\n\t{matrix}\n")
 
 def main():
    initialValues: List[float] = [0, 0, 0]
