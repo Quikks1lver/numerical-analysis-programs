@@ -10,9 +10,3 @@ trouble giving these programs a go!
 
 - `python3 Program.py` if Python program
 - `javac Program.java` and `java Program` if Java program
-
-<<<<<<< HEAD
-Added leo-bytb
-=======
-Merge conflict here
->>>>>>> main
